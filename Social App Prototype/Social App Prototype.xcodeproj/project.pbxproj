@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E3A83D21C2984060042B419 /* MessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A83D11C2984060042B419 /* MessageInfo.swift */; };
+		4E3A83D41C2986130042B419 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A83D31C2986130042B419 /* MessageTableViewCell.swift */; };
+		4E3A83D61C2999CE0042B419 /* MessageTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A83D51C2999CE0042B419 /* MessageTextLabel.swift */; };
 		4E8065261C28297C009B8C4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8065251C28297C009B8C4A /* AppDelegate.swift */; };
 		4E8065281C28297C009B8C4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8065271C28297C009B8C4A /* ViewController.swift */; };
 		4E80652B1C28297C009B8C4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8065291C28297C009B8C4A /* Main.storyboard */; };
 		4E80652D1C28297C009B8C4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E80652C1C28297C009B8C4A /* Assets.xcassets */; };
 		4E8065301C28297C009B8C4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E80652E1C28297C009B8C4A /* LaunchScreen.storyboard */; };
+		4E8065381C282C0D009B8C4A /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8065371C282C0D009B8C4A /* ColorConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E3A83D11C2984060042B419 /* MessageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageInfo.swift; sourceTree = "<group>"; };
+		4E3A83D31C2986130042B419 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		4E3A83D51C2999CE0042B419 /* MessageTextLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTextLabel.swift; sourceTree = "<group>"; };
 		4E8065221C28297C009B8C4A /* Social App Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social App Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E8065251C28297C009B8C4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E8065271C28297C009B8C4A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +29,7 @@
 		4E80652C1C28297C009B8C4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E80652F1C28297C009B8C4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E8065311C28297C009B8C4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E8065371C282C0D009B8C4A /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +62,16 @@
 		4E8065241C28297C009B8C4A /* Social App Prototype */ = {
 			isa = PBXGroup;
 			children = (
+				4E3A83D11C2984060042B419 /* MessageInfo.swift */,
+				4E3A83D31C2986130042B419 /* MessageTableViewCell.swift */,
 				4E8065251C28297C009B8C4A /* AppDelegate.swift */,
 				4E8065271C28297C009B8C4A /* ViewController.swift */,
 				4E8065291C28297C009B8C4A /* Main.storyboard */,
+				4E3A83D51C2999CE0042B419 /* MessageTextLabel.swift */,
 				4E80652C1C28297C009B8C4A /* Assets.xcassets */,
 				4E80652E1C28297C009B8C4A /* LaunchScreen.storyboard */,
 				4E8065311C28297C009B8C4A /* Info.plist */,
+				4E8065371C282C0D009B8C4A /* ColorConstants.swift */,
 			);
 			path = "Social App Prototype";
 			sourceTree = "<group>";
@@ -136,7 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E8065381C282C0D009B8C4A /* ColorConstants.swift in Sources */,
+				4E3A83D61C2999CE0042B419 /* MessageTextLabel.swift in Sources */,
+				4E3A83D21C2984060042B419 /* MessageInfo.swift in Sources */,
 				4E8065281C28297C009B8C4A /* ViewController.swift in Sources */,
+				4E3A83D41C2986130042B419 /* MessageTableViewCell.swift in Sources */,
 				4E8065261C28297C009B8C4A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +303,7 @@
 				4E8065361C28297C009B8C4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

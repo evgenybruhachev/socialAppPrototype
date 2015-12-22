@@ -15,7 +15,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        // Custom UINavigationBar
+        UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
+        let navigationBarFont = UIFont.boldSystemFontOfSize(16)
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:ColorConstants.MountainMist, NSFontAttributeName:navigationBarFont]
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        
+        let rect = CGRectMake(0, 0, 1, 1)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
+        ColorConstants.Gallery.setFill()
+        UIRectFill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        UINavigationBar.appearance().shadowImage = image
+        
         return true
     }
 
