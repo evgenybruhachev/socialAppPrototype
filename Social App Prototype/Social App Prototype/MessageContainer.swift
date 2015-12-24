@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MessageBackgroundView: UIView {
+@IBDesignable
+class MessageContainer: UIView {
     
     let cornerRadius:CGFloat = 5
     let pointerHalfHeight:CGFloat = 5
@@ -17,6 +18,7 @@ class MessageBackgroundView: UIView {
     var isOwnMessage:Bool = true
 
     override func drawRect(rect: CGRect) {
+        super.drawRect(rect)
         let myBezier = UIBezierPath()
         if isOwnMessage {
             myBezier.moveToPoint(CGPoint(x: cornerRadius, y: rect.minY))

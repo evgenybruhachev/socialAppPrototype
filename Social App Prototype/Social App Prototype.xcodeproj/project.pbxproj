@@ -16,6 +16,7 @@
 		4E80652D1C28297C009B8C4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E80652C1C28297C009B8C4A /* Assets.xcassets */; };
 		4E8065301C28297C009B8C4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E80652E1C28297C009B8C4A /* LaunchScreen.storyboard */; };
 		4E8065381C282C0D009B8C4A /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8065371C282C0D009B8C4A /* ColorConstants.swift */; };
+		4E9FCBFA1C2AC48A006165C1 /* MessageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FCBF91C2AC48A006165C1 /* MessageContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4E80652F1C28297C009B8C4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E8065311C28297C009B8C4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E8065371C282C0D009B8C4A /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
+		4E9FCBF91C2AC48A006165C1 /* MessageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		4E8065241C28297C009B8C4A /* Social App Prototype */ = {
 			isa = PBXGroup;
 			children = (
+				4E9FCBF91C2AC48A006165C1 /* MessageContainer.swift */,
 				4E3A83D11C2984060042B419 /* MessageInfo.swift */,
 				4E3A83D31C2986130042B419 /* MessageTableViewCell.swift */,
 				4E8065251C28297C009B8C4A /* AppDelegate.swift */,
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E9FCBFA1C2AC48A006165C1 /* MessageContainer.swift in Sources */,
 				4E8065381C282C0D009B8C4A /* ColorConstants.swift in Sources */,
 				4E3A83D61C2999CE0042B419 /* MessageTextLabel.swift in Sources */,
 				4E3A83D21C2984060042B419 /* MessageInfo.swift in Sources */,

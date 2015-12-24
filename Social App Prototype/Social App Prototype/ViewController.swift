@@ -20,8 +20,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         tableView.separatorStyle = .None
+        tableView.estimatedRowHeight = 90
+        tableView.rowHeight = UITableViewAutomaticDimension
         
-        let message1 = MessageInfo(type: "text", date: NSDate(), sender: "me", isOwnMessage: true, text: "Hello, Sasha!", picture: nil)
+        let message1 = MessageInfo(type: "text", date: NSDate(), sender: "me", isOwnMessage: true, text: "Hello, Sasha! It's really nice to meet you! And I hope this message will wider than table row", picture: nil)
         messagesHolder.append(message1)
         let message2 = MessageInfo(type: "text", date: NSDate(), sender: "sasha", isOwnMessage: false, text: "Hi, Jenya!", picture: nil)
         messagesHolder.append(message2)

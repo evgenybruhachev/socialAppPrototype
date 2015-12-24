@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PfB-xn-y3M">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PfB-xn-y3M">
                                 <rect key="frame" x="0.0" y="64" width="600" height="468"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -30,27 +30,34 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text inside box" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLv-qG-tNG" customClass="MessageTextLabel" customModule="Social_App_Prototype" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="8" width="239" height="34"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rwf-tH-qrk" customClass="MessageContainer" customModule="Social_App_Prototype" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="31" width="584" height="40"/>
                                                     <animations/>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2j-Kq-8pq">
+                                                    <rect key="frame" x="8" y="8" width="584" height="20"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="239" id="A0p-BJ-cyK"/>
-                                                        <constraint firstAttribute="height" constant="34" id="MvZ-Xg-fyX"/>
+                                                        <constraint firstAttribute="height" constant="20" id="RIp-3H-tr8"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </view>
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="topMargin" secondItem="fLv-qG-tNG" secondAttribute="top" id="0K0-Pg-Bge"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="fLv-qG-tNG" secondAttribute="leading" id="Fol-3r-0Ky"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="M2j-Kq-8pq" secondAttribute="leading" id="1Lt-gT-DGC"/>
+                                                <constraint firstAttribute="topMargin" secondItem="M2j-Kq-8pq" secondAttribute="top" id="2UV-A1-PYh"/>
+                                                <constraint firstItem="Rwf-tH-qrk" firstAttribute="top" secondItem="M2j-Kq-8pq" secondAttribute="bottom" constant="3" id="Lvh-92-ePA"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="Rwf-tH-qrk" secondAttribute="leading" id="Mdo-pa-juT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="M2j-Kq-8pq" secondAttribute="trailing" id="Vja-41-57y"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Rwf-tH-qrk" secondAttribute="trailing" id="kz0-Ce-JNv"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Rwf-tH-qrk" secondAttribute="bottom" id="zTM-6D-kaZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <outlet property="messageTitle" destination="fLv-qG-tNG" id="cuW-jv-MRl"/>
+                                            <outlet property="contentContainer" destination="Rwf-tH-qrk" id="kfn-33-6ou"/>
+                                            <outlet property="contentView" destination="Rwf-tH-qrk" id="nay-Bu-DFO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -59,12 +66,31 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="OhY-mA-YO6"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ygb-bf-NMf">
+                                <rect key="frame" x="0.0" y="531" width="600" height="69"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mcM-Pq-251">
+                                        <rect key="frame" x="8" y="8" width="527" height="53"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PfB-xn-y3M" secondAttribute="bottom" constant="68" id="2hf-aV-vxc"/>
                             <constraint firstItem="PfB-xn-y3M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="4Y0-Ya-Ird"/>
+                            <constraint firstItem="Ygb-bf-NMf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="KSl-2q-i1U"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ygb-bf-NMf" secondAttribute="bottom" id="cVb-Or-glF"/>
+                            <constraint firstItem="Ygb-bf-NMf" firstAttribute="top" secondItem="PfB-xn-y3M" secondAttribute="bottom" constant="-1" id="f3P-3K-yhE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ygb-bf-NMf" secondAttribute="trailing" constant="-20" id="jza-4o-EPQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PfB-xn-y3M" secondAttribute="trailing" constant="-20" id="tZH-pI-wQB"/>
                             <constraint firstItem="PfB-xn-y3M" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xKe-Kn-H5D"/>
                         </constraints>
