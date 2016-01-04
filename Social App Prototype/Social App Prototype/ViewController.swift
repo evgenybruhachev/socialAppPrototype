@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private let CellIdentifier = "MessageCell"
+    private let CellIdentifier = "MessageTextCell"
     
     @IBOutlet weak var tableView: UITableView!
     

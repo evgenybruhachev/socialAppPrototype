@@ -8,52 +8,42 @@
 
 import UIKit
 
+extension NSDate {
+    var timeShortString:String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .NoStyle
+        dateFormatter.timeStyle = .ShortStyle
+        return dateFormatter.stringFromDate(self)
+    }
+}
+
 class MessageTableViewCell: UITableViewCell {
     
+    @IBInspectable let spacer:CGFloat = 75.0
+    
     @IBOutlet weak var contentContainer: MessageContainer!
+    @IBOutlet weak var messageText: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
+    @IBOutlet weak var leadingMarginConstraint: NSLayoutConstraint!
+    @IBOutlet weak var trailingMarginConstraint: NSLayoutConstraint!
+    @IBOutlet weak var trailingMarginDateLabelConstraint: NSLayoutConstraint!
     
-    override func drawRect(rect: CGRect) {
-        /*
-        let context = UIGraphicsGetCurrentContext()
-        UIColor.redColor().setFill()
-        CGContextFillRect(context, rect)*/
-
-    }
-
+    var messageInfo:MessageInfo?
+    var isOwn = true
+    
     func setData(messageInfo: MessageInfo, isOwnMessage: Bool) {
-        //contentContainer.isOwnMessage = isOwnMessage
-        switch messageInfo.type {
-        case MessageInfo.TYPE_TEXT:
-            if let messageText = messageInfo.text {
-                //createMessageLabel(messageText)
-            }
-            break
-        case MessageInfo.TYPE_PICTURE:
-            break
-        default:
-            break
-        }
+        self.messageInfo = messageInfo
+        self.isOwn = isOwnMessage
+        updateUI()
     }
     
-    func createMessageLabel(messageText:String) {
-        let newLabel = UILabel(frame: CGRect(x: 0, y: -50, width: 300, height: 100))
-        newLabel.lineBreakMode = .ByWordWrapping
-        newLabel.numberOfLines = 0
-        newLabel.textColor = ColorConstants.ShadyLady
-        newLabel.textAlignment = .Left
-        newLabel.text = messageText
-        newLabel.sizeThatFits(CGSize(width: newLabel.bounds.size.width, height: CGFloat.max))
-        contentContainer.addSubview(newLabel)
-        
-        //let contentContainerHeight = contentContainer.frame
-        //contentContainer.frame = CGRect(x: contentContainerHeight.minX, y: contentContainerHeight.minX, width: contentContainerHeight.width, height: newLabel.frame.height + 10)
+    func updateUI() {
+        leadingMarginConstraint.constant = isOwn ? -spacer : 0
+        trailingMarginConstraint.constant = isOwn ? 0 : spacer
+        trailingMarginDateLabelConstraint.constant = isOwn ? contentContainer.pointerWidth : spacer
+        contentContainer.isOwnMessage = isOwn
+        timeLabel.text = messageInfo?.date.timeShortString ?? ""
+        messageText.text = messageInfo?.text ?? ""
     }
 }
