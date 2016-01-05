@@ -28,6 +28,7 @@ class MessageTableViewCell: UITableViewCell {
     @IBOutlet weak var leadingMarginConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingMarginConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingMarginDateLabelConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leadingMarginTextConstraint: NSLayoutConstraint!
     
     var messageInfo:MessageInfo?
     var isOwn = true
@@ -42,6 +43,7 @@ class MessageTableViewCell: UITableViewCell {
         leadingMarginConstraint.constant = isOwn ? -spacer : 0
         trailingMarginConstraint.constant = isOwn ? 0 : spacer
         trailingMarginDateLabelConstraint.constant = isOwn ? contentContainer.pointerWidth : spacer
+        leadingMarginTextConstraint.constant = isOwn ? 30 : 20
         contentContainer.isOwnMessage = isOwn
         timeLabel.text = messageInfo?.date.timeShortString ?? ""
         messageText.text = messageInfo?.text ?? ""

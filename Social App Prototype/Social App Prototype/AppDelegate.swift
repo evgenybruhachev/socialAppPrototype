@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationBarFont = UIFont.boldSystemFontOfSize(16)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:ColorConstants.MountainMist, NSFontAttributeName:navigationBarFont]
         UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        UINavigationBar.appearance().backgroundColor = UIColor.whiteColor()
         
         let rect = CGRectMake(0, 0, 1, 1)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
