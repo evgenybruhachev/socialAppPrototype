@@ -47,5 +47,6 @@ class MessageTableViewCell: UITableViewCell {
         contentContainer.isOwnMessage = isOwn
         timeLabel.text = messageInfo?.date.timeShortString ?? ""
         messageText.text = messageInfo?.text ?? ""
+        setNeedsDisplay()
     }
 }

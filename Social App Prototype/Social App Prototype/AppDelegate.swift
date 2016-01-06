@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: .Default)
         UINavigationBar.appearance().backgroundColor = UIColor.whiteColor()
         
+        UIBarButtonItem.appearance().tintColor = ColorConstants.DarkGray
+        
         let rect = CGRectMake(0, 0, 1, 1)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
         ColorConstants.Gallery.setFill()

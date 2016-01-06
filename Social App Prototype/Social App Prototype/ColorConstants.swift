@@ -17,5 +17,6 @@ class ColorConstants {
     static let Seashell = UIColor.init(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
     /// ShadyLady -> RGB: (153,157,161)
     static let ShadyLady = UIColor.init(red: 0.60, green: 0.62, blue: 0.63, alpha: 1.0)
+    static let DarkGray = UIColor.init(red: 0.65, green: 0.66, blue: 0.67, alpha: 1.0)
     
 }

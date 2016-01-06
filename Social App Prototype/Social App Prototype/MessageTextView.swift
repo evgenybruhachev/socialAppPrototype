@@ -1,5 +1,5 @@
 //
-//  MessageEditorBackgroundView.swift
+//  MessageTextField.swift
 //  Social App Prototype
 //
 //  Created by Eugen Briukhachyov on 05.01.16.
@@ -9,8 +9,10 @@
 import UIKit
 
 @IBDesignable
-class MessageEditorBackgroundView: UIView {
+class MessageTextView: UITextView {
 
+    let tailLength:CGFloat = 8
+    
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
@@ -18,8 +20,10 @@ class MessageEditorBackgroundView: UIView {
         
         let innerRect = rect.insetBy(dx: bezierPath.lineWidth, dy: bezierPath.lineWidth)
         
-        bezierPath.moveToPoint(CGPoint(x: innerRect.minX, y: innerRect.minY))
-        bezierPath.addLineToPoint(CGPoint(x: innerRect.maxX, y: innerRect.minY))
+        bezierPath.moveToPoint(CGPoint(x: innerRect.minX, y: innerRect.maxY - tailLength))
+        bezierPath.addLineToPoint(CGPoint(x: innerRect.minX, y: innerRect.maxY))
+        bezierPath.addLineToPoint(CGPoint(x: innerRect.maxX, y: innerRect.maxY))
+        bezierPath.addLineToPoint(CGPoint(x: innerRect.maxX, y: innerRect.maxY - tailLength))
         
         ColorConstants.Gallery.setStroke()
         bezierPath.stroke()

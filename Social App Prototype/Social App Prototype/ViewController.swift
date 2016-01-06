@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     private let BottomPadding:CGFloat = 0
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var messageTextField: MessageTextField!
+    @IBOutlet weak var messageTextField: MessageTextView!
     @IBOutlet weak var messageEditorView: MessageEditorBackgroundView!
     
     @IBOutlet weak var messageTextFieldHeightConstraint: NSLayoutConstraint!
@@ -34,6 +34,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
         
+        let threeLinesView = ThreeHorizontalLinesView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
+        let barButton = UIBarButtonItem(customView: threeLinesView)
+        navigationItem.setLeftBarButtonItem(barButton, animated: false)
+        
         messageTextField.delegate = self
         messageTextField.textContainerInset = UIEdgeInsetsMake(8, 10, 8, 10)
         messageTextField.setNeedsDisplay()
@@ -41,7 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.separatorStyle = .None
         tableView.estimatedRowHeight = 90
         tableView.rowHeight = UITableViewAutomaticDimension
-        
+        /*
         let userDefaults = NSUserDefaults.standardUserDefaults()
         if let savedSessionId = userDefaults.stringForKey(SessionIdKey) {
             sessionId = savedSessionId
@@ -49,8 +53,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
             createNewSession()
         }
-        
-        
+        */
+        updateTable()
     }
     
     func createNewSession() {
