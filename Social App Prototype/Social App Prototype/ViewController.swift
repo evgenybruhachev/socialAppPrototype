@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     private let CellIdentifier = "MessageTextCell"
     private let SessionIdKey = "SessionId"
@@ -25,8 +25,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var messageTextFieldHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageEditorBottomConstraint: NSLayoutConstraint!
     
+    let imagePicker = UIImagePickerController()
+    
     var messagesHolder = [MessageInfo]()
     var sessionId: String?
+    
+    @IBAction func selectPictureButtonTapped(sender: PictureSelectorButton) {
+     imagePicker.allowsEditing = false
+     imagePicker.sourceType = .PhotoLibrary
+     
+     presentViewController(imagePicker, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +47,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let barButton = UIBarButtonItem(customView: threeLinesView)
         navigationItem.setLeftBarButtonItem(barButton, animated: false)
         
+        imagePicker.delegate = self
+        
         messageTextField.delegate = self
         messageTextField.textContainerInset = UIEdgeInsetsMake(8, 10, 8, 10)
         messageTextField.setNeedsDisplay()
         
         tableView.separatorStyle = .None
-        tableView.estimatedRowHeight = 90
+        tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableViewAutomaticDimension
         /*
         let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -88,7 +99,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func updateTable() {
         let message1 = MessageInfo(type: "text", date: NSDate(), sender: "me", isOwnMessage: true, text: "Hello, Sasha! It's really nice to meet you! And I hope this message will wider than table row", picture: nil)
         messagesHolder.append(message1)
-        let message2 = MessageInfo(type: "text", date: NSDate(), sender: "sasha", isOwnMessage: false, text: "Hi, Jenya!", picture: nil)
+        let message2 = MessageInfo(type: "text", date: NSDate(), sender: "sasha", isOwnMessage: false, text: "Hi, Jenya!", picture: "picture")
         messagesHolder.append(message2)
         messagesHolder.append(message1)
         messagesHolder.append(message2)
@@ -135,7 +146,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         messageTextField.setNeedsDisplay()
         messageEditorView.setNeedsDisplay()
-    }
+     }
+     
+     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+          dismissViewControllerAnimated(true, completion: nil)
+     }
+     
+     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+          dismissViewControllerAnimated(true, completion: nil)
+     }
 
 }
 

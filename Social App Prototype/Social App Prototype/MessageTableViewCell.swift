@@ -29,9 +29,19 @@ class MessageTableViewCell: UITableViewCell {
     @IBOutlet weak var trailingMarginConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingMarginDateLabelConstraint: NSLayoutConstraint!
     @IBOutlet weak var leadingMarginTextConstraint: NSLayoutConstraint!
+    @IBOutlet weak var textImageVerticalSpaceConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     
     var messageInfo:MessageInfo?
     var isOwn = true
+    
+    private var textImageVerticalSpaceConstraintConstant:CGFloat {
+        if let text = messageInfo?.text, image = messageInfo?.picture {
+            return (text.isEmpty || image.isEmpty) ? 0 : 8
+        } else {
+            return 0
+        }
+    }
     
     func setData(messageInfo: MessageInfo, isOwnMessage: Bool) {
         self.messageInfo = messageInfo
@@ -44,9 +54,12 @@ class MessageTableViewCell: UITableViewCell {
         trailingMarginConstraint.constant = isOwn ? 0 : spacer
         trailingMarginDateLabelConstraint.constant = isOwn ? contentContainer.pointerWidth : spacer
         leadingMarginTextConstraint.constant = isOwn ? 30 : 20
+        textImageVerticalSpaceConstraint.constant = textImageVerticalSpaceConstraintConstant
+        imageViewHeightConstraint.constant = ((messageInfo != nil) && (messageInfo!.picture != nil) && !messageInfo!.picture!.isEmpty) ? 85 : 0
         contentContainer.isOwnMessage = isOwn
         timeLabel.text = messageInfo?.date.timeShortString ?? ""
         messageText.text = messageInfo?.text ?? ""
         setNeedsDisplay()
     }
+    
 }

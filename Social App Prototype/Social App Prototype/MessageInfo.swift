@@ -10,18 +10,13 @@ import Foundation
 
 class MessageInfo {
     
-    static let TYPE_TEXT = "text"
-    static let TYPE_PICTURE = "text"
-    
-    var type:String
     var date:NSDate
     var sender:String
     var text:String?
-    var picture:NSData?
+    var picture:String?
     var isOwnMessage:Bool
     
-    init (type: String, date: NSDate, sender: String, isOwnMessage:Bool, text: String?, picture: NSData?) {
-        self.type = type
+    init (type: String, date: NSDate, sender: String, isOwnMessage:Bool, text: String?, picture: String?) {
         self.date = date
         self.sender = sender
         self.isOwnMessage = isOwnMessage
