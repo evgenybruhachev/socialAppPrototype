@@ -33,7 +33,7 @@
                                             <action selector="sendMessageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DVI-YR-wC1"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ctO-Nx-HHe" customClass="MessageTextView" customModule="Social_App_Prototype" customModuleProvider="target">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ctO-Nx-HHe" customClass="MessageTextView" customModule="Social_App_Prototype" customModuleProvider="target">
                                         <rect key="frame" x="12" y="8" width="524" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -67,10 +67,19 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDk-NU-oH1" customClass="UserPicBackgroundView" customModule="Social_App_Prototype" customModuleProvider="target">
                                                     <rect key="frame" x="13" y="9" width="32" height="32"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c60-n8-LI9">
+                                                            <rect key="frame" x="2" y="2" width="28" height="28"/>
+                                                        </imageView>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="c60-n8-LI9" secondAttribute="trailing" constant="2" id="2SK-sW-sSg"/>
                                                         <constraint firstAttribute="height" constant="32" id="HDE-la-nhk"/>
+                                                        <constraint firstAttribute="bottom" secondItem="c60-n8-LI9" secondAttribute="bottom" constant="2" id="TGz-Xp-uAp"/>
                                                         <constraint firstAttribute="width" constant="32" id="eiJ-MW-jRk"/>
+                                                        <constraint firstItem="c60-n8-LI9" firstAttribute="top" secondItem="nDk-NU-oH1" secondAttribute="top" constant="2" id="sDp-YS-36s"/>
+                                                        <constraint firstItem="c60-n8-LI9" firstAttribute="leading" secondItem="nDk-NU-oH1" secondAttribute="leading" constant="2" id="uzt-b2-BAa"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yET-ko-ZGm" customClass="MessageContainer" customModule="Social_App_Prototype" customModuleProvider="target">
@@ -136,6 +145,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="avatarImageView" destination="c60-n8-LI9" id="1F4-0S-dgV"/>
                                             <outlet property="contentContainer" destination="yET-ko-ZGm" id="EqD-Qk-xbw"/>
                                             <outlet property="imageViewHeightConstraint" destination="D2N-Tb-w5n" id="POt-8k-1Hs"/>
                                             <outlet property="leadingMarginConstraint" destination="MTd-c0-Tc0" id="J6d-zJ-pSY"/>
