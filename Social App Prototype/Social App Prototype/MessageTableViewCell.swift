@@ -19,11 +19,14 @@ extension NSDate {
 
 class MessageTableViewCell: UITableViewCell {
     
-    @IBInspectable let spacer:CGFloat = 75.0
+    @IBInspectable let spacer:CGFloat = 99.0
+    @IBInspectable let pointerWidth:CGFloat = 5.0
     
     @IBOutlet weak var contentContainer: MessageContainer!
     @IBOutlet weak var messageText: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userPicContainer: UserPicBackgroundView!
     
     @IBOutlet weak var leadingMarginConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingMarginConstraint: NSLayoutConstraint!
@@ -31,6 +34,9 @@ class MessageTableViewCell: UITableViewCell {
     @IBOutlet weak var leadingMarginTextConstraint: NSLayoutConstraint!
     @IBOutlet weak var textImageVerticalSpaceConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var userNameHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var timeLabelHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var userPicContainerHeightConstraint: NSLayoutConstraint!
     
     var messageInfo:MessageInfo?
     var isOwn = true
@@ -51,14 +57,19 @@ class MessageTableViewCell: UITableViewCell {
     
     func updateUI() {
         leadingMarginConstraint.constant = isOwn ? -spacer : 0
+        userPicContainer.hidden = isOwn
+        userPicContainerHeightConstraint.constant = isOwn ? 4 : 32
+        userNameLabel.hidden = isOwn
+        userNameHeightConstraint.constant = isOwn ? 4 : 21
         trailingMarginConstraint.constant = isOwn ? 0 : spacer
-        trailingMarginDateLabelConstraint.constant = isOwn ? contentContainer.pointerWidth : spacer
-        leadingMarginTextConstraint.constant = isOwn ? 30 : 20
+        trailingMarginDateLabelConstraint.constant = isOwn ? (contentContainer.pointerWidth + 2) : (spacer + 2)
+        leadingMarginTextConstraint.constant = isOwn ? 25 : 20
         textImageVerticalSpaceConstraint.constant = textImageVerticalSpaceConstraintConstant
         imageViewHeightConstraint.constant = ((messageInfo != nil) && (messageInfo!.picture != nil) && !messageInfo!.picture!.isEmpty) ? 85 : 0
         contentContainer.isOwnMessage = isOwn
         timeLabel.text = messageInfo?.date.timeShortString ?? ""
         messageText.text = messageInfo?.text ?? ""
+        userPicContainer.setNeedsDisplay()
         setNeedsDisplay()
     }
     

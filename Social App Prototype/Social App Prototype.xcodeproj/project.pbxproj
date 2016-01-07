@@ -10,6 +10,8 @@
 		4E0798A01C3BA0CD00BE862F /* MessageEditorBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E07989F1C3BA0CD00BE862F /* MessageEditorBackgroundView.swift */; };
 		4E0798A21C3BAEB800BE862F /* MessageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0798A11C3BAEB800BE862F /* MessageTextView.swift */; };
 		4E0798A41C3CED7400BE862F /* ThreeHorizontalLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0798A31C3CED7400BE862F /* ThreeHorizontalLinesView.swift */; };
+		4E38684F1C3EB0BE00CF70C2 /* UserPicImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E38684E1C3EB0BE00CF70C2 /* UserPicImageView.swift */; };
+		4E3868511C3EB9C700CF70C2 /* UserPicBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3868501C3EB9C700CF70C2 /* UserPicBackgroundView.swift */; };
 		4E3A83D21C2984060042B419 /* MessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A83D11C2984060042B419 /* MessageInfo.swift */; };
 		4E3A83D41C2986130042B419 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3A83D31C2986130042B419 /* MessageTableViewCell.swift */; };
 		4E4F79E71C3D349600B650AF /* PictureSelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F79E61C3D349600B650AF /* PictureSelectorButton.swift */; };
@@ -26,6 +28,8 @@
 		4E07989F1C3BA0CD00BE862F /* MessageEditorBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageEditorBackgroundView.swift; sourceTree = "<group>"; };
 		4E0798A11C3BAEB800BE862F /* MessageTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTextView.swift; sourceTree = "<group>"; };
 		4E0798A31C3CED7400BE862F /* ThreeHorizontalLinesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeHorizontalLinesView.swift; sourceTree = "<group>"; };
+		4E38684E1C3EB0BE00CF70C2 /* UserPicImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPicImageView.swift; sourceTree = "<group>"; };
+		4E3868501C3EB9C700CF70C2 /* UserPicBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPicBackgroundView.swift; sourceTree = "<group>"; };
 		4E3A83D11C2984060042B419 /* MessageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageInfo.swift; sourceTree = "<group>"; };
 		4E3A83D31C2986130042B419 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		4E4F79E61C3D349600B650AF /* PictureSelectorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureSelectorButton.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 		4E8065241C28297C009B8C4A /* Social App Prototype */ = {
 			isa = PBXGroup;
 			children = (
+				4E38684E1C3EB0BE00CF70C2 /* UserPicImageView.swift */,
+				4E3868501C3EB9C700CF70C2 /* UserPicBackgroundView.swift */,
 				4E0798A31C3CED7400BE862F /* ThreeHorizontalLinesView.swift */,
 				4E9FCBF91C2AC48A006165C1 /* MessageContainer.swift */,
 				4E07989F1C3BA0CD00BE862F /* MessageEditorBackgroundView.swift */,
@@ -160,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E3868511C3EB9C700CF70C2 /* UserPicBackgroundView.swift in Sources */,
 				4E9FCBFA1C2AC48A006165C1 /* MessageContainer.swift in Sources */,
 				4E0798A01C3BA0CD00BE862F /* MessageEditorBackgroundView.swift in Sources */,
 				4E8065381C282C0D009B8C4A /* ColorConstants.swift in Sources */,
@@ -170,6 +177,7 @@
 				4E4F79E71C3D349600B650AF /* PictureSelectorButton.swift in Sources */,
 				4E3A83D41C2986130042B419 /* MessageTableViewCell.swift in Sources */,
 				4E8065261C28297C009B8C4A /* AppDelegate.swift in Sources */,
+				4E38684F1C3EB0BE00CF70C2 /* UserPicImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

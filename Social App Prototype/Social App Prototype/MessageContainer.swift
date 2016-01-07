@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 class MessageContainer: UIView {
     
-    let cornerRadius:CGFloat = 5
+    let cornerRadius:CGFloat = 3
     let pointerHalfHeight:CGFloat = 5
     let pointerWidth:CGFloat = 5
     

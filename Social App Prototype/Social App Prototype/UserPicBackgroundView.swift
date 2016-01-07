@@ -8,14 +8,15 @@
 
 import UIKit
 
+@IBDesignable
 class UserPicBackgroundView: UIView {
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
-        // Drawing code
+        let innerRect = CGRectInset(rect, 1, 1)
+        
+        let bezierPath = UIBezierPath(roundedRect: innerRect, cornerRadius: 2)
+        ColorConstants.Zircon.setStroke()
+        bezierPath.stroke()
     }
-    */
 
 }
