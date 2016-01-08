@@ -51,7 +51,7 @@ class ViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue()) {
                         if let _ = response, _ = data {
                             self.clearMessageEditor()
-                            self.loadMessages()
+                            self.loadMessages(loadNewMessages: true)
                         } else {
                             print(error)
                         }
@@ -79,6 +79,7 @@ class ViewController: UIViewController {
         messageTextView.textContainerInset = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10)
         messageTextView.setNeedsDisplay()
         
+        tableView.transform = CGAffineTransformMakeScale(1, -1)
         tableView.separatorStyle = .None
         tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -105,11 +106,13 @@ class ViewController: UIViewController {
      
      func didSessionUpdate(currentUserId userId:Int) {
           self.currentUserId = userId
-          loadMessages()
+          loadMessages(loadNewMessages: true)
      }
      
-     func loadMessages() {
-          messengerAPI.getMessagesPack(sessionId!, pagingSize: PageSize, newestMessageId: newestMessage?.id, oldestMessageId: oldestMessage?.id)
+     func loadMessages(loadNewMessages loadNew:Bool) {
+          let newestMessageId = loadNew ? newestMessage?.id : nil
+          let oldestMessageId = loadNew ? nil : oldestMessage?.id
+          messengerAPI.getMessagesPack(sessionId!, pagingSize: PageSize, newestMessageId: newestMessageId, oldestMessageId: oldestMessageId)
      }
      
      func handleMessages(messages messages:NSArray) {
@@ -193,9 +196,10 @@ extension ViewController:UITableViewDataSource {
           
           let message = messagesHolder[indexPath.row]
           cell.setData(message, isOwnMessage: (message.userId == currentUserId))
+          cell.transform = CGAffineTransformMakeScale(1, -1)
           
           if (indexPath.row == messagesHolder.count - 1) {
-               loadMessages()
+               loadMessages(loadNewMessages: false)
           }
           
           return cell
