@@ -65,8 +65,6 @@ class ViewController: UIViewController {
     
      override func viewDidLoad() {
           super.viewDidLoad()
-     
-          messengerAPI.viewController = self
         
           NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardDidShowNotification, object: nil)
           NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
@@ -88,7 +86,7 @@ class ViewController: UIViewController {
         if let savedSessionId = userDefaults.stringForKey(SessionIdKey) {
             sessionId = savedSessionId
         } else {
-            messengerAPI.getNewSessionID()
+            messengerAPI.getNewSessionID(handlerFunction: saveNewSessionId)
         }
      
 
@@ -101,7 +99,7 @@ class ViewController: UIViewController {
      }
      
      func updateSession() {
-          messengerAPI.updateSessionByID(sessionId!)
+          messengerAPI.updateSessionByID(sessionId: sessionId!, handlerFunction: didSessionUpdate)
      }
      
      func didSessionUpdate(currentUserId userId:Int) {
@@ -112,7 +110,7 @@ class ViewController: UIViewController {
      func loadMessages(loadNewMessages loadNew:Bool) {
           let newestMessageId = loadNew ? newestMessage?.id : nil
           let oldestMessageId = loadNew ? nil : oldestMessage?.id
-          messengerAPI.getMessagesPack(sessionId!, pagingSize: PageSize, newestMessageId: newestMessageId, oldestMessageId: oldestMessageId)
+          messengerAPI.getMessagesPack(sessionId!, pagingSize: PageSize, newestMessageId: newestMessageId, oldestMessageId: oldestMessageId, handlerFunction: handleMessages)
      }
      
      func handleMessages(messages messages:NSArray) {

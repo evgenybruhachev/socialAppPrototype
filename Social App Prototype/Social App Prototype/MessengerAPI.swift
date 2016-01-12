@@ -24,9 +24,7 @@ class MessengerAPI {
         return hostURL + "messages"
     }
     
-    var viewController:ViewController?
-    
-    func getNewSessionID() {
+    func getNewSessionID(handlerFunction handler: ((String) -> Void)) {
         let url = NSURL(string: createNewSessionURL)!
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "POST"
@@ -38,7 +36,7 @@ class MessengerAPI {
                     do {
                         let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
                         if let sessionId = json["session"] as? String {
-                            self.viewController!.saveNewSessionId(sessionId)
+                            handler(sessionId)
                         }
                     } catch {
                         print("error serializing JSON: \(error)")
@@ -52,7 +50,7 @@ class MessengerAPI {
         task.resume()
     }
     
-    func updateSessionByID(sessionId: String) {
+    func updateSessionByID(sessionId sessionId: String, handlerFunction handler: ((Int) -> Void)) {
         let url = NSURL(string: updateSessionURL)!
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "POST"
@@ -68,7 +66,7 @@ class MessengerAPI {
                         let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
                         if let userInfo = json["User"] as? NSDictionary {
                             if let userId:String = userInfo["id"] as? String {
-                                self.viewController!.didSessionUpdate(currentUserId: Int(userId)!)
+                                handler(Int(userId)!)
                             }
                         }
                     } catch {
@@ -83,7 +81,7 @@ class MessengerAPI {
         task.resume()
     }
     
-    func getMessagesPack(sessionId:String, pagingSize:Int?, newestMessageId:Int?, oldestMessageId:Int?) {
+    func getMessagesPack(sessionId:String, pagingSize:Int?, newestMessageId:Int?, oldestMessageId:Int?, handlerFunction handler: ((NSArray) -> Void)) {
         var stringURL = getMessagesURL + "?session=\(sessionId)"
         
         func updateParametersMarks() {
@@ -115,7 +113,7 @@ class MessengerAPI {
                     do {
                         let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
                         if let messages:NSArray = json["messages"] as? NSArray {
-                            self.viewController!.handleMessages(messages: messages)
+                            handler(messages)
                         }
                     } catch {
                         print("error serializing JSON: \(error)")
