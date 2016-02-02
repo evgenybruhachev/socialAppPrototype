@@ -10,7 +10,7 @@ import Foundation
 
 class MessengerAPI {
     
-    private let hostURL = "http://52.192.101.131/"
+    private let hostURL = "http://52.10.75.149/"
     
     var createNewSessionURL:String {
         return hostURL + "signup"
@@ -28,6 +28,7 @@ class MessengerAPI {
         let url = NSURL(string: createNewSessionURL)!
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
@@ -65,8 +66,8 @@ class MessengerAPI {
                     do {
                         let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
                         if let userInfo = json["User"] as? NSDictionary {
-                            if let userId:String = userInfo["id"] as? String {
-                                handler(Int(userId)!)
+                            if let userId:Int = userInfo["id"] as? Int {
+                                handler(userId)
                             }
                         }
                     } catch {

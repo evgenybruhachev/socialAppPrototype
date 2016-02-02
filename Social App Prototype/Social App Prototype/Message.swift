@@ -20,8 +20,8 @@ class Message {
     
     init (serializedJsonObject json:NSDictionary) {
         if let userInfo = json["User"] as? NSDictionary {
-            if let userId = userInfo["id"] as? String {
-                self.userId = Int(userId)!
+            if let userId = userInfo["id"] as? Int {
+                self.userId = userId
             }
             if let username = userInfo["nickname"] as? String {
                 self.userNickName = username
@@ -31,8 +31,8 @@ class Message {
             }
         }
         if let messageInfo = json["Message"] as? NSDictionary {
-            if let messageId = messageInfo["id"] as? String {
-                self.id = Int(messageId)!
+            if let messageId = messageInfo["id"] as? Int {
+                self.id = messageId
             }
             if let pictureURL = messageInfo["image_url"] as? String {
                 self.pictureURL = pictureURL

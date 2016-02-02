@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     @IBAction func sendMessageButtonTapped(sender: UIButton) {
         if let messageText = messageTextView.text {
             if !messageText.isEmpty {
-                let url = NSURL(string: "http://52.192.101.131/messages/message")!
+                let url = NSURL(string: "http://52.10.75.149/messages/message")!
                 let request = NSMutableURLRequest(URL: url)
                 request.HTTPMethod = "POST"
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
